@@ -68,14 +68,14 @@ namespace T27_API_ER_SQL_EX2.Model
                     .HasColumnName("Cientifico")
                     .HasMaxLength(8)
                     .IsUnicode(false);
-                asignado_a.HasKey(e => e.Cientifico);
 
                 asignado_a.Property(e => e.Proyecto)
                     .HasColumnName("Proyecto")
                     .HasMaxLength(4)
                     .IsUnicode(false);
-                asignado_a.HasKey(e => e.Proyecto);
 
+                asignado_a.HasKey(k => new { k.Proyecto, k.Cientifico });
+                
                 // RELACIONES
 
                 asignado_a.HasOne(k => k.Cientificos)
